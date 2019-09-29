@@ -1,0 +1,27 @@
+/* General */
+a:hover{
+	text-decoration: none
+}
+/* End General */
+
+
+/* Start Blog */
+.prev-posts,
+.next-posts {
+    padding: .3% 3%;
+    margin: 2%;
+} 
+.main-content{
+	margin-top: 5%
+}
+/* End Blog */
+
+/* Start Footer */
+#footer{
+    width: 100%;
+    background-color: #333;
+    color: beige;
+    padding: 1%;
+	text-align: center;
+}
+/* End Footer */
