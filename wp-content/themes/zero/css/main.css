@@ -14,6 +14,51 @@ a:hover{
 .main-content{
 	margin-top: 5%
 }
+
+ul.comments.list-unstyled ul {
+    list-style: none;
+}
+
+h5.comments_number {
+    padding: 1%;
+    background: #e6e5e5;
+    border: 1px solid #d8d7d7;
+}
+
+.comments .comment {
+    padding: 1% 2%;
+    margin: 1% 0;
+    border: 1px solid #d8d7d7;
+}
+.comments .depth-2 {
+    background: #e4e4e4 !important;
+}
+.comments .depth-3 {
+    background: #ececec;
+}
+.comment-meta.commentmetadata {
+    font-size: .8em;
+}
+
+.comment-meta.commentmetadata a:first-of-type {
+    color: #737373;
+}
+.comment-respond {
+    background: #e6e5e5;
+    padding: 2%;
+    border: 1px solid #eee;
+}
+
+.comment-reply-title {
+    font-size: 1.5em;
+}
+
+.author-data {
+    padding: 2%;
+    border: 1px solid #999;
+    background: lightblue;
+    margin: 0;
+}
 /* End Blog */
 
 /* Start Footer */

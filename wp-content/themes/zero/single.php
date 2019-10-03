@@ -35,8 +35,29 @@
                     } // end while
                 } // end if	
             ?>
+                    <div class="row author-data col-12 clear-fix">
+                        <div class="col-4">
+                            <?php  echo get_avatar(get_the_author_meta( 'ID')); ?>
+                        </div>
+                        <div class="col-8">
+                            <h4>
+                            <?php the_author_meta( 'nickname'); ?>
+                            </h4>
+                            <?php if ( get_the_author_meta('description')) {
+                                ?>
+                                    <p>
+                                        <?php the_author_meta( 'description'); ?>
+                                    </p>
+                                <?php
+                            } else{
+                                echo 'No Bio';    
+                            }?>
+                        </div>
+                    </div>
 
-                    <?php comments_template(); ?>
+                    
+
+
                     <div class="col-12 clearfix">
                         <?php if( get_previous_post_link()) {
                 ?>
@@ -48,6 +69,7 @@
                     }
                      ?>
 
+
                         <?php if( get_next_post_link()) {
                 ?>
                         <button type="button"
@@ -57,6 +79,31 @@
                         echo'<button type="button" class="next-posts btn btn-secondary float-right" disabled >No Next Posts</button>';
                     }
                      ?>
+                    </div>
+                    <div class="col-12">
+                        <?php comments_template(); ?>
+
+                        <div class="form-group">
+                            <label for="">Your Name</label>
+                            <input type="text" class="form-control" placeholder="Your Name">
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="">Comment</label>
+                            <textarea class="form-control" rows="3"></textarea>
+                        </div>
+                        <?php
+                        $args= array(
+                            'fields'        => array(
+                                        'author'    => '<div class="form-group"><label for="name">Your Name</label><input type="text" name="author"  class="form-control"></div>',
+                                        'email'     => '<div class="form-group"><label for="email">Your Email</label><input type="email" name="email" class="form-control"></div>',
+                                        'url'       => '<div class="form-group"><label for="url">Your url</label><input type="text"  name="url" class="form-control"></div>',
+                            ),
+                            'comment_field' => '<div class="form-group"><label for="">Comment</label><textarea class="form-control" name="comment" rows="5"></textarea></div>',
+                            'class_submit'  => 'btn btn-primary'
+                        );
+                        comment_form($args); ?>
                     </div>
 
                 </div>
