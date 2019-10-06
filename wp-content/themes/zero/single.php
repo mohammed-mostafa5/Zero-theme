@@ -19,7 +19,7 @@
                             </h5>
                             <p class="card-text"><?php the_content(); ?></p>
                             <hr>
-                            by <b><?php the_author_posts_link(); ?>,</b></a>
+                            </b></a>
                             <?php the_time('F jS, Y'); ?>
                             <div class="comments float-right">
                                 <i class="color-secondary fas fa-comment mr-2 ml-2"></i>
@@ -35,27 +35,36 @@
                     } // end while
                 } // end if	
             ?>
-                    <div class="row author-data col-12 clear-fix">
+                    <div class="row author-data col-12">
                         <div class="col-4">
                             <?php  echo get_avatar(get_the_author_meta( 'ID')); ?>
                         </div>
+                        <div class="clear-fix"></div>
                         <div class="col-8">
                             <h4>
-                            <?php the_author_meta( 'nickname'); ?>
+                                <?php the_author_meta( 'nickname'); ?>
                             </h4>
                             <?php if ( get_the_author_meta('description')) {
                                 ?>
-                                    <p>
-                                        <?php the_author_meta( 'description'); ?>
-                                    </p>
-                                <?php
+                            <p>
+                                <?php the_author_meta( 'description'); ?>
+                            </p>
+                            <?php
                             } else{
                                 echo 'No Bio';    
                             }?>
                         </div>
+                        
+                        <div class="clear-fix"></div>
+                        <div class="text-center col-8">
+                        <i class="far fa-clipboard"></i> Posts Count:
+                        <?php echo count_user_posts( get_the_author_meta('ID')); ?><br>
+                        <i class="fas fa-link"></i> User Link: <?php the_author_posts_link(); ?>
+                        </div>
+                       
                     </div>
 
-                    
+
 
 
                     <div class="col-12 clearfix">

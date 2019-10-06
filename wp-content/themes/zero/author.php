@@ -1,40 +1,67 @@
 <?php get_header(); ?>
 
-<div id="content" class="narrowcolumn">
-
-<!-- This sets the $curauth variable -->
-
+<!-- Header -->
+<div class="author-header text-center mt-5">
+    <h1>
+        <?php the_author_meta( 'nickname');  echo "'s Page."?>
+    </h1>
+    <div class="author-avatar clear-fix mb-2">
+        <?php  echo get_avatar(get_the_author_meta( 'ID'), '128'); ?>
+    </div>
+    <?php if ( get_the_author_meta('description')) {
+                                ?>
+    <p>
+        <?php the_author_meta( 'description'); ?>
+    </p>
     <?php
-    $curauth = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name) : get_userdata(intval($author));
-    ?>
+        } else{
+            echo 'No Bio';    
+        }?>
+    <br><i class="far fa-clipboard"></i> Posts Count: <?php echo count_user_posts( get_the_author_meta('ID')); ?><br>
+    <i class="fas fa-comment"></i> User Comments: <?php 
+        $args = array(
+            'user_id' => get_the_author_meta( 'ID'),
+            'count'   => true
+        );
+    
+    echo get_comments( $args ); ?>
+</div><!-- End Header -->
 
-    <h2>About: <?php echo $curauth->nickname; ?></h2>
-    <dl>
-        <dt>Website</dt>
-        <dd><a href="<?php echo $curauth->user_url; ?>"><?php echo $curauth->user_url; ?></a></dd>
-        <dt>Profile</dt>
-        <dd><?php echo $curauth->user_description; ?></dd>
-    </dl>
+<hr>
+<!-- Content -->
+<div class="container">
+    <div class="row">
+        
+            <?php 
+                if ( have_posts() ) {
+                    while ( have_posts() ) {
+                        the_post(); 
+            ?>
+            <div class="col-4">
+            <div class="card mb-3">
+                <?php the_post_thumbnail('post-thumbnail', ['class' => 'img-responsive responsive--full img-thumbnail card-img-top']); ?>
+                <div class="card-body">
+                    <h5 class="card-title"><a href="<?php the_permalink(); ?>"><b><?php the_title(); ?></b></a>
+                    </h5>
+                    <p class="card-text"><?php the_excerpt(); ?></p>
+                    <hr>
+                    </b></a>
+                    <?php the_time('F jS, Y'); ?>
+                    <div class="comments float-right">
+                        <i class="color-secondary fas fa-comment mr-2 ml-2"></i>
+                        <?php comments_popup_link('No Comments', '1 Comment', '% Comments', 'comment_url', 'Comments Disabled') ?>
+                    </div>
+                    <p><?php _e( 'Posted in' ); ?><i class="color-secondary mr-2 ml-2 fas fa-tags"></i>
+                        <?php the_category( ', ' ); ?></p>
+                </div>
+            </div>
+            </div>
+            <?php
+                    } // end while
+                } // end if	
+            ?>
+        
+    </div>
+</div><!-- End Content -->
 
-    <h2>Posts by <?php echo $curauth->nickname; ?>:</h2>
-
-    <ul>
-<!-- The Loop -->
-
-    <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-        <li>
-            <a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link: <?php the_title(); ?>">
-            <?php the_title(); ?></a>,
-            <?php the_time('d M Y'); ?> in <?php the_category('&');?>
-        </li>
-
-    <?php endwhile; else: ?>
-        <p><?php _e('No posts by this author.'); ?></p>
-
-    <?php endif; ?>
-
-<!-- End Loop -->
-
-    </ul>
-</div>
 <?php get_footer(); ?>
