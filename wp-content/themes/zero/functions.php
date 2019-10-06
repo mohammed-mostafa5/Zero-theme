@@ -52,7 +52,13 @@ function fire_menu()
  * @return int (Maybe) modified excerpt length.
  */
 function custom_excerpt_length($length) {
-    return 20;
+    if ( is_author() ) {
+        return 10;
+    }else{
+        return 40;
+    }
+    
+    
 }
 
 

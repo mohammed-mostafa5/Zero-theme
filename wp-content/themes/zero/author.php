@@ -31,13 +31,13 @@
 <!-- Content -->
 <div class="container">
     <div class="row">
-        
-            <?php 
+
+        <?php 
                 if ( have_posts() ) {
                     while ( have_posts() ) {
                         the_post(); 
             ?>
-            <div class="col-4">
+        <div class="col-4">
             <div class="card mb-3">
                 <?php the_post_thumbnail('post-thumbnail', ['class' => 'img-responsive responsive--full img-thumbnail card-img-top']); ?>
                 <div class="card-body">
@@ -55,13 +55,39 @@
                         <?php the_category( ', ' ); ?></p>
                 </div>
             </div>
-            </div>
-            <?php
+        </div>
+        <?php
                     } // end while
                 } // end if	
             ?>
-        
+
+    </div>
+
+   
+        <div class="row author-comments">
+        <div class="col-12 d-block clear-fix">
+            <?php $args = array(
+         'user_id' => get_the_author_meta( 'ID')
+     ); ?>
+            <?php $comments = get_comments( $args ); ?>
+            <?php 
+    if ( $comments) {?>
+            <?php foreach ($comments as $comment){ ?>
+            <a href="<?php get_permalink($comment->comment_ID); ?>"><br>
+                <?php echo get_the_title($comment->comment_ID)  ?><br>
+            </a>
+            <?php echo $comment->comment_content ?><br>
+            <span>
+                <?php echo $comment->comment_date ?>
+            </span><hr>
+            <?php } ?>
+        </div>
     </div>
 </div><!-- End Content -->
+<?php }else{
+    echo 'The user has no comments.';
+} ?>
+
+    
 
 <?php get_footer(); ?>
