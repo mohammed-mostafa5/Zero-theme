@@ -1,72 +1,235 @@
 /* General */
-a:hover{
-	text-decoration: none
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+a:hover {
+  text-decoration: none
+}
+
 /* End General */
-
-
 /* Start Blog */
 .prev-posts,
 .next-posts {
-    padding: .3% 3%;
-    margin: 2%;
-} 
-.main-content{
-	margin-top: 5%
+  padding: .3% 3%;
+  margin: 2%;
+}
+
+.main-content {
+  margin-top: 5%
 }
 
 ul.comments.list-unstyled ul {
-    list-style: none;
+  list-style: none;
 }
 
 h5.comments_number {
-    padding: 1%;
-    background: #e6e5e5;
-    border: 1px solid #d8d7d7;
+  padding: 1%;
+  background: #e6e5e5;
+  border: 1px solid #d8d7d7;
 }
 
 .comments .comment {
-    padding: 1% 2%;
-    margin: 1% 0;
-    border: 1px solid #d8d7d7;
+  padding: 1% 2%;
+  margin: 1% 0;
+  border: 1px solid #d8d7d7;
 }
+
 .comments .depth-2 {
-    background: #e4e4e4 !important;
+  background: #e4e4e4 !important;
 }
+
 .comments .depth-3 {
-    background: #ececec;
+  background: #ececec;
 }
+
 .comment-meta.commentmetadata {
-    font-size: .8em;
+  font-size: .8em;
 }
 
 .comment-meta.commentmetadata a:first-of-type {
-    color: #737373;
+  color: #737373;
 }
+
 .comment-respond {
-    background: #e6e5e5;
-    padding: 2%;
-    border: 1px solid #eee;
+  background: #e6e5e5;
+  padding: 2%;
+  border: 1px solid #eee;
 }
 
 .comment-reply-title {
-    font-size: 1.5em;
+  font-size: 1.5em;
 }
 
 .author-data {
-    padding: 2%;
-    border: 1px solid #999;
-    background: lightblue;
-    margin: 0;
+  padding: 2%;
+  border: 1px solid #999;
+  background: lightblue;
+  margin: 0;
 }
-/* End Blog */
 
-/* Start Footer */
-#footer{
-    width: 100%;
-    background-color: #333;
-    color: beige;
-    padding: 1%;
-	text-align: center;
+.related-posts {
+  margin: 2%;
 }
+
+.bypostauthor:after {
+  content: 'Author';
+  position: absolute;
+  top: 5%;
+  right: 1%;
+  border: 2px solid #78aeb9;
+  border-radius: 50px;
+  background: #28bbb6;
+  color: #fff;
+  padding: .2% 3%;
+}
+
+.bypostauthor {
+  position: relative;
+}
+
+/* End Blog */
+/* Author Page */
+.author-comments h3 {
+  background: #efebeb;
+  padding: 1%;
+  border: 1px solid #dad9d9;
+}
+
+.author-comments .comment {
+  background: #dde9fd;
+  margin: .5% 0;
+  padding: 2%;
+}
+
+.author-comments a {
+  font-size: 1.3em;
+  font-weight: 500;
+}
+
+.author-comments p {
+  color: #333;
+}
+
+.author-comments span {
+  font-size: .9em;
+  color: #7b7b7b;
+}
+
+/* End Author Page */
+/* Paginate */
+.numbering-paginate {
+  margin: 2% auto;
+}
+
+.prev, .next {
+  font-size: 1.7em;
+  vertical-align: middle;
+  padding: 5px;
+}
+
+/* End Paginate */
+/* 404 Page */
+#notfound {
+  position: relative;
+  height: 100vh;
+}
+
+#notfound .notfound {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.notfound {
+  max-width: 410px;
+  width: 100%;
+  text-align: center;
+}
+
+.notfound .notfound-404 {
+  height: 280px;
+  position: relative;
+  z-index: -1;
+}
+
+.notfound .notfound-404 h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 230px;
+  margin: 0px;
+  font-weight: 900;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  background: url('../imgs/bg.jpg') no-repeat;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: cover;
+  background-position: center;
+}
+
+.notfound h2 {
+  font-family: 'Montserrat', sans-serif;
+  color: #000;
+  font-size: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-top: 0;
+}
+
+.notfound p {
+  font-family: 'Montserrat', sans-serif;
+  color: #000;
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 20px;
+  margin-top: 0px;
+}
+
+.notfound a {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  text-decoration: none;
+  text-transform: uppercase;
+  background: #0046d5;
+  display: inline-block;
+  padding: 15px 30px;
+  border-radius: 40px;
+  color: #fff;
+  font-weight: 700;
+  -webkit-box-shadow: 0px 4px 15px -5px #0046d5;
+  box-shadow: 0px 4px 15px -5px #0046d5;
+}
+
+@media only screen and (max-width: 767px) {
+  .notfound .notfound-404 {
+    height: 142px;
+  }
+
+  .notfound .notfound-404 h1 {
+    font-size: 112px;
+  }
+}
+
+/* End 404 Page */
+/* Start Footer */
+#footer {
+  width: 100%;
+  background-color: #333;
+  color: beige;
+  padding: 1%;
+  text-align: center;
+}
+
 /* End Footer */

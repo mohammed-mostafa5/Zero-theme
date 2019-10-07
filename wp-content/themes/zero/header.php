@@ -9,12 +9,14 @@
         <?php wp_title( '|' ) ?>
         </title>
         <link rel="pingback" href="<?php bloginfo( 'pingback_url' );?>">
+        <!-- Google font -->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,900" rel="stylesheet">
 
         <?php wp_head();?>
 
     </head>
     <body>
-        
+
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
@@ -24,10 +26,9 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    
+
                         <?php fire_menu(); ?>
-                    
+
                 </div>
             </div>
         </nav>
-        

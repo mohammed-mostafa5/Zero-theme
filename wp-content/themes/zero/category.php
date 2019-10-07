@@ -4,7 +4,7 @@
     <div class="container main-content">
         <div class="row">
             <div class="col-md-12 col-lg-12 ">
-                <h4 class="section-title"><b>Blogs</b></h4>
+                <h4 class="section-title"><b> <?php single_cat_title(); ?></b></h4>
                 <div class="row">
                     <?php
                 if ( have_posts() ) {

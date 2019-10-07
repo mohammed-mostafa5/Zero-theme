@@ -21,7 +21,7 @@ function add_my_scripts()
 
 // Add Post Thumbnails to the theme
 
-add_theme_support( 'post-thumbnails' ); 
+add_theme_support( 'post-thumbnails' );
 add_theme_support( 'title-tag' );
 
 
@@ -57,17 +57,38 @@ function custom_excerpt_length($length) {
     }else{
         return 40;
     }
-    
-    
+
+
 }
 
 
 function custom_excerpt_more($more) {
 	return ' ...';
 }
+
+// Numbering paginate
+function custom_numbering_paginate()
+{
+  global $wp_query;
+  $all_pages = $wp_query->max_num_pages;
+  $current_page = max( 1, get_query_var( 'paged' ) );
+
+    if ($all_pages > 1) {
+      return paginate_links( array(
+              'base' => get_pagenum_link() . '%_%',
+              'format' => 'page/%#%',
+              'current' => $current_page,
+              'prev_text' => '«',
+              'next_text' => '»',
+              'before_page_number' => '<span class="btn btn-info">',
+              'after_page_number' => '</span>',
+       ));
+    }
+}
+
+
+
 add_filter( 'excerpt_more', 'custom_excerpt_more' );
-
-
 add_filter( 'excerpt_length', 'custom_excerpt_length');
 add_filter('wp_enqueue_scripts', 'add_my_styles');
 add_filter('wp_enqueue_scripts', 'add_my_scripts');
