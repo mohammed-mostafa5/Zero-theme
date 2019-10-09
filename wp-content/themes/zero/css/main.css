@@ -135,6 +135,32 @@ h5.comments_number {
 }
 
 /* End Paginate */
+/* Side bar */
+.sidebar-widgets {
+  background: #eee;
+}
+
+.widget {
+  border: 1px solid #ddd;
+  margin: 3% 0;
+  padding: 3%;
+  background: #f7f7f4;
+}
+
+.widget .title {
+  background: #777;
+  color: #fff;
+  padding: 5%;
+  font-size: 1.2em;
+}
+
+.widget .content {
+  color: #595a5a;
+  background: #fff;
+  padding: 5%;
+}
+
+/* End Side bar */
 /* 404 Page */
 #notfound {
   position: relative;

@@ -87,12 +87,31 @@ function custom_numbering_paginate()
 }
 
 
+// Register Main Sidebar
+
+function reg_main_sidebar()
+{
+  register_sidebar( $args = array(
+      'name'    => 'Main Sidebar',
+      'id'    => 'main-sidebar',
+      'description'    => 'main sidebar',
+      'class'    => 'main-sidebar',
+      'before_widget'    => '<div class="main-sidebar-content">',
+      'after_widget'    => '</div>',
+      'before_title'    => '<h3 class="sidebar-title">',
+      'after_title'    => '</h3>',
+
+  ) );
+}
+
+
 
 add_filter( 'excerpt_more', 'custom_excerpt_more' );
 add_filter( 'excerpt_length', 'custom_excerpt_length');
 add_filter('wp_enqueue_scripts', 'add_my_styles');
 add_filter('wp_enqueue_scripts', 'add_my_scripts');
 add_filter('init', 'add_custom_menu');
+add_action( 'widgets_init', 'reg_main_sidebar' );
 
 
 // apply_filters( 'excerpt_length', 10 );

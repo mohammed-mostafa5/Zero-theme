@@ -3,7 +3,7 @@
 <section>
     <div class="container main-content">
         <div class="row">
-            <div class="col-md-12 col-lg-12 ">
+            <div class="col-md-9 col-lg-9 ">
                 <h4 class="section-title"><b> <?php single_cat_title(); ?></b></h4>
                 <div class="row">
                     <?php
@@ -42,6 +42,9 @@
 
 
                 </div>
+            </div>
+            <div class="sidebar col-3">
+              <?php get_sidebar( 'main-sidebar' ) ?>
             </div>
         </div>
     </div>
